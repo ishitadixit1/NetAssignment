@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_login.cshtml";
+}
+
+<head>
+    <style>
+        body {
+            background-image: url("https://marketplace.canva.com/EAFCO6pfthY/1/0/1600w/canva-blue-green-watercolor-linktree-background-F2CyNS5sQdM.jpg");
+        }
+    </style>
+</head>
+<div class="text-center">
+    <h1 class="display-4">Profile Management</h1></br>
+    <h3 class="display-6">Please Signup/Login to continue</h3></br>
+    New User? Click here to <a class="text-decoration-none text-primary" asp-controller="Account" asp-action="Signup"> Signup</a><br />
+    <a class="text-decoration-none text-primary" asp-controller="Account" asp-action="Login"> Login</a> if already registered
+</div>

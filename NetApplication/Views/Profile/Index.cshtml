@@ -1,0 +1,49 @@
+﻿@model IEnumerable<NetApplication.Models.Profiles>
+
+
+<head>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/blue-curve-background_53876-113112.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h1>Profiles</h1>
+            <table class="table table-bordered">
+                <thead class="bg-dark text-center text-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Link</th>
+                        <th>Edit/Remove</th>
+                    </tr>
+                </thead>
+                @if (Model.Count() < 1)
+                {
+                    <span>No profiles to show. Click on 'Add' button to add profiles</span>
+                    <br />
+                    <br />
+                }
+                @foreach (var profile in Model)
+                {
+                    <tr class="text-center">
+                        <td>@profile.Id</td>
+                        <td>@profile.Name</td>
+                        <td><a href="${@profile.Link}">@profile.Link</a></td>
+                        <td>
+                            <a class="btn btn-warning" asp-controller="Profile" asp-action="Edit" asp-route-id="@profile.Id">Edit</a>
+                            <a class="btn btn-danger" asp-controller="Profile" asp-action="Delete" asp-route-id="@profile.Id">Remove</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+            <br />
+            <a class="btn btn-primary" asp-controller="Profile" asp-action="Add">Add</a>
+        </div>
+    </div>
+</div>
